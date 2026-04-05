@@ -39,6 +39,8 @@ http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart scr
 
 # > 高德地图_打车页面处理@ddgksf2013
 http-response ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, timeout=60, tag=amap
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? script-path=https://kelee.one/Resource/JavaScript/Amap/Amap_remove_ads.js, requires-body=true, timeout=20, tag=移除打车页红点角标、天气图标
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:car\/order\/content_info|order_web\/friendly_information) script-path=https://kelee.one/Resource/JavaScript/Amap/Amap_remove_ads.js, requires-body=true, timeout=20, tag=移除打车页推广卡片、弹窗
 
 # > 高德地图_首页底部处理@ddgksf2013
 http-response ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, timeout=60, tag=amap
