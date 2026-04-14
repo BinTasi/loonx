@@ -1,7 +1,7 @@
 #!name=补充app去广告
-#!desc=净化
+#!desc=查缺补漏净化
 #!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1002.png
-#!tag=ddgksf2013
+#!author=bintasi
 
 [Rewrite]
 ^http:\/\/app\.dsx\.ac\/ndsx\.php\/v\d\/logs response-body-json-jq 'del(.data.banners) | if .data.is_top then .data = [] else . end'
@@ -31,7 +31,12 @@ http-response ^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/navigation\/ge
 http-response ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/friendShake\/getShakeList script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, timeout=60, tag=NoAds
 # > Speedtest 广告vip & 净化
 http-response ^https?:\/\/(user-api\.speedtest\.net\/v1\/flows\/users\/(me\/)?(login|apply-identities)|(www\.)?speedtest\.net\/(api\/)?ios-config\.php) script-path=https://raw.githubusercontent.com/BOBOLAOSHIV587/Rules/main/JS/SpeedTest/JS/SpeedTest.js, requires-body=true, timeout=20, tag=Speedtest 广告vip & 净化
+# > GitHub解锁永久订阅
+http-response https://api.github.com/graphql script-path=https://raw.githubusercontent.com/BOBOLAOSHIV587/Rules/main/JS/Github/JS/GithubPro.js, requires-body=true, timeout=60, tag=GithubPro
+# > 高德地图_首页右中广告@ddgksf2013
+http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, timeout=60, tag=amap
+
 
 
 [MITM]
-hostname = app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, app-cdn.2q10.com, idaily-cdn.idailycdn.com, icity-pres.2q10.com, idays-cdn.2q10.com, user-api.speedtest.net, www.speedtest.net
+hostname = app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, app-cdn.2q10.com, idaily-cdn.idailycdn.com, icity-pres.2q10.com, idays-cdn.2q10.com, user-api.speedtest.net, www.speedtest.net, api.github.com
